@@ -7,7 +7,15 @@
 	* [Ogólne zasady](#rules)
 		* [Język](#lang) 
 		* [Skróty](#short) 
-		* [Warunki i pętle](#loop) 
+		* [Warunki i pętle](#loops)
+* [Modularyzacja](#modularyzacja)
+	* [Podział projektów](#project)
+	* [Podział folderów] (#folder)
+	* [RCL](#rcl)
+* [Feature Toggle](#feature-toggle)
+* [Wersje oprogramowania i konfiguracja](#version)
+	* [Repozytorium](#repozytorium)
+		
 
 # Klasy i struktury
 ## Namespace
@@ -176,7 +184,7 @@ Warunki lub pętle posiadające tylko jedną linię kodu nie powinny być zawart
 -------------------
 # Modularyzacja
 
-## Podział projektów
+## Podział projektów <a name="project"></a>
 Należy dzilić projekty w ramach solucji na niezależne ze względu na funkcjonalności np.
 
 ```DotKit.Core``` - projekt zawierający encje i serwisy, niska warstwa kodu mająca połączenie z bazą danych i serwisami zewnętrznymi
@@ -190,7 +198,7 @@ Należy dzilić projekty w ramach solucji na niezależne ze względu na funkcjon
 
 
 
-## Podział folderów 
+## Podział folderów <a name="folder"></a>
 Podczas wytwarzania kodu należy zwrócić również uwagę na modularyzację folderów np. Interfejsy, Serwisy, Encje, Kontrolery, Widoki, Zasoby (Resource) itp powinny znajdować się czytelnie zdefiniowanych strukturach i osobnych folderach - co jednocześnie wymusza prawidłowy podział namespaców. Przykładowy podział katalogowy modułu (projektu):
 
 ```
@@ -231,7 +239,7 @@ Projekty RCL możemy referencjować przy użyciu standardowej referencji projekt
 
 -------------------
 
-# FeatureToggle
+# Feature Toggle
 
 Mechanizm który implementujemy aby móc bez ingerencji w kod włączać/wyłączać części funkcjonalności aplikacji za pomocą prostej modyfikacji pliku appsettings. Aby zaimplementować feature toggle należy:
 
@@ -290,7 +298,7 @@ Od tej pory możemy wykorzystać nasz FeatureToggle:
 
 -------------------
 
-# Wersje oprogramowania i konfiguracja
+# Wersje oprogramowania i konfiguracja <a name="version"></a>
 
 Wszystkie wersje oprogramowania powinny być wytwarzane w oparciu o framework .NET Core posiadających suport LTS (Long Term Support). Jeżeli do realizacji projektu jest wymagana wersja inna nie posiadająca LTS możliwe jest użycie innej po wcześniejszym uzasadnieniu i ustaleniu tego z zespołem OPL.
 
@@ -298,5 +306,5 @@ Wytworzone przy użyciu frameworka aplikacje muszą być publikowane jako aplika
 
 Serwery będą przygotowywane i utrzymywane przez zespół utrzymaniowy po stronie OPL na podstawie instrukcji przygotowywanych przez dostawcę.
 
-Podstawowym repozytorium za pomocą którego OPL ma wgląd w kod źródłowy jest GIT. Na potrzeby wewnętrznego wytwarzania kodu można korzystać z dowolnego systemu kontroli wersji.
 ## Repozytorium
+Podstawowym repozytorium za pomocą którego OPL ma wgląd w kod źródłowy jest GIT. Na potrzeby wewnętrznego wytwarzania kodu można korzystać z dowolnego systemu kontroli wersji.
