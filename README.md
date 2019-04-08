@@ -10,7 +10,7 @@
 		* [Warunki i pętle](#loops)
 * [Modularyzacja](#modularyzacja)
 	* [Podział projektów](#project)
-	* [Podział folderów] (#folder)
+	* [Podział folderów](#folder)
 	* [RCL](#rcl)
 * [Feature Toggle](#feature-toggle)
 * [Wersje oprogramowania i konfiguracja](#version)
