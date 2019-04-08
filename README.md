@@ -4,6 +4,10 @@
 	* [Klasy](#klasy)
 	* [Interfejsy](#interfejsy)	
 	* [Metody pola i właściwości](#method)
+	* [Ogólne zasady](#rules)
+		* [Język](#lang) 
+		* [Skróty](#short) 
+		* [Warunki i pętle](#loop) 
 
 # Klasy i struktury
 ## Namespace
@@ -107,8 +111,8 @@ Poniższy listing przedstawia przykładową klasę w której widać że:
 
 
 
-## Ogólne zasady
-##### Język
+## Ogólne zasady <a name="rules" />
+### Język <a name="lang" />
 Wszystkie aplikacje i całość kodu powinny być pisane w języku angielskim. Jeżeli potrzebujemy wyświetlić informację w języku polskim np. nazwy w menu bądź treść strony powinniśmy skorzystać z plików resx w którym będą trzymane tłumaczenia w zależności od wybranego w aplikacji języka (culture). Klucze w resx po których będziemy się odwoływać do tłumaczenia powinny w łatwy sposób określać położenie i wykorzystanie tłumaczenia:
 
 
@@ -126,7 +130,7 @@ Przykładowe wykorzystanie klucza
 
 Więcej informacji na temat konfiguracji i wykorzystania SharedLocalizer można znaleźć [Tutaj](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-2.2).
 
-##### Skróty
+### Skróty <a name="short" />
 Nie używać skrótów przy nazwyaniu:
 
 - klas
@@ -156,7 +160,7 @@ Nie używać skrótów przy nazwyaniu:
         private string languageName;       
 ```
 
-##### Warunki i pętle
+### Warunki i pętle <a name="loops" />
 Warunki lub pętle posiadające tylko jedną linię kodu nie powinny być zawarte w \{ \}
 ```
         if(condition == true)
