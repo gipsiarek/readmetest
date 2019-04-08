@@ -1,38 +1,22 @@
 # Spis treści
-* [Klasy i struktury](#klasy-i-struktury)
-	* [Namespace](#namespace)
-	* [Klasy](#klasy)
+* [Klasy](#klasy)
+* [Metody pola i właściwości](#method)
+* [Konwencje](#konwencje)
+	* [Nazewnictwo](#nazewnictwo) 	
+	* [Przestrzenie nazw](#namespace)
 	* [Interfejsy](#interfejsy)	
-	* [Metody pola i właściwości](#method)
-	* [Ogólne zasady](#rules)
-		* [Język](#lang) 
-		* [Skróty](#short) 
-		* [Warunki i pętle](#loops)
+	* [Warunki i pętle](#loops)
+* [Globalizacja](#lang) 
 * [Modularyzacja](#modularyzacja)
 	* [Podział projektów](#project)
 	* [Podział folderów](#folder)
 	* [RCL](#rcl)
 * [Feature Toggle](#feature-toggle)
 * [Wersje oprogramowania i konfiguracja](#version)
-	* [Repozytorium](#repozytorium)
+* [Repozytorium](#repozytorium)
 		
 
-# Klasy i struktury
-## Namespace
-Namespace powinien zawsze odpowiadać strukturze katalogów w której znajduje się klasa. Nazewnictwo namespace`ów powinno odpowiadać poniższemu szablonowi ```    <Company>.(<Product>|<Technology>)[.<Feature>][.<Subnamespace>] ``` 
-na przykład
-
-```        
-        Microsoft.Office.PowerPoint
-        DotKit.Core.Security
-```
-Dodatkowo:
-- nie należy używać tej samej nazwy dla namespace oraz klasy znajdującej się wewnątrz tego namespace.
-- można używać liczby mnogiej dla namespace tam gdzie jest to wskazane np. ```System.Collections```
-- w ramach jednego namespace nie można dwukrotnie utworzyć typu o tej samej nazwie
-
-
-## Klasy
+# Klasy
 Klasy deklarujemy zawsze w pliku o nazwie klasy. Nazwa klasy powinna wskazywać zastosowanie lub sposób użycia klasy. 
 Nie stosujemy przedrostków dla klas abstrakcyjnych lub wirtualnych
 
@@ -48,13 +32,7 @@ Nie stosujemy przedrostków dla klas abstrakcyjnych lub wirtualnych
 ```
 
 
-    
-## Interfejsy
-Interfejs jest jedynym obiektem dla którego stosujemy przedrostek. Każdy interfejs powinien być poprzedzony literą 'I'. 
-
-
-## Metody, Pola, Właściwości <a name="method"></a>
-
+# Metody, Pola, Właściwości <a name="method"></a>
 Nazwy metod zawsze piszemy z wielkiej litery z wykorzystaniem camelCase. Powinny one mówić o konkretnym użyciu. Parametry przekazane do metod powinny zawsze rozpoczynać się małą literą.
 ```
     public class String {  
@@ -117,28 +95,8 @@ Poniższy listing przedstawia przykładową klasę w której widać że:
     }
 ```
 
-
-
-## Ogólne zasady <a name="rules" />
-### Język <a name="lang" />
-Wszystkie aplikacje i całość kodu powinny być pisane w języku angielskim. Jeżeli potrzebujemy wyświetlić informację w języku polskim np. nazwy w menu bądź treść strony powinniśmy skorzystać z plików resx w którym będą trzymane tłumaczenia w zależności od wybranego w aplikacji języka (culture). Klucze w resx po których będziemy się odwoływać do tłumaczenia powinny w łatwy sposób określać położenie i wykorzystanie tłumaczenia:
-
-
-| klucz           | angielski               | polski         |
-| ------------- |----------------|-----------|
-| Menu.Logout   | Logout           | Wyloguj    |
-| Home.Index.Welcome | Welcom to test Application | Witaj w aplikacji testowej |
-
-Przykładowe wykorzystanie klucza
-
-```
-<a class="btn" href="/Login/Logout">@SharedLocalizer["Menu.Logout"]</a>
-<h4>@SharedLocalizer["Home.Index.Welcome"]</h4>
-```
-
-Więcej informacji na temat konfiguracji i wykorzystania SharedLocalizer można znaleźć [Tutaj](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-2.2).
-
-### Skróty <a name="short" />
+# Konwencje 
+## Nazewnictwo<a name="naming" />
 Nie używać skrótów przy nazwyaniu:
 
 - klas
@@ -168,7 +126,26 @@ Nie używać skrótów przy nazwyaniu:
         private string languageName;       
 ```
 
-### Warunki i pętle <a name="loops" />
+## Przestrzenie nazw<a name="namespace" /> 
+Przestrzeń nazw (namespace) powinna zawsze odpowiadać strukturze katalogów w której znajduje się klasa. Nazewnictwo namespace`ów powinno odpowiadać poniższemu szablonowi ```    <Company>.(<Product>|<Technology>)[.<Feature>][.<Subnamespace>] ``` 
+na przykład
+
+```        
+        Microsoft.Office.PowerPoint
+        DotKit.Core.Security
+```
+Dodatkowo:
+- nie należy używać tej samej nazwy dla namespace oraz klasy znajdującej się wewnątrz tego namespace.
+- można używać liczby mnogiej dla namespace tam gdzie jest to wskazane np. ```System.Collections```
+- w ramach jednego namespace nie można dwukrotnie utworzyć typu o tej samej nazwie
+
+
+
+    
+## Interfejsy
+Interfejs jest jedynym obiektem dla którego stosujemy przedrostek. Każdy interfejs powinien być poprzedzony literą 'I'. 
+
+## Warunki i pętle <a name="loops" />
 Warunki lub pętle posiadające tylko jedną linię kodu nie powinny być zawarte w \{ \}
 ```
         if(condition == true)
@@ -179,6 +156,27 @@ Warunki lub pętle posiadające tylko jedną linię kodu nie powinny być zawart
         foreach(var item in itemsCollection)
             result.Add(item.Id);
 ```
+
+
+# Globalizacja <a name="lang" />
+Wszystkie aplikacje i całość kodu powinny być pisane w języku angielskim. Jeżeli potrzebujemy wyświetlić informację w języku polskim np. nazwy w menu bądź treść strony powinniśmy skorzystać z plików resx w którym będą trzymane tłumaczenia w zależności od wybranego w aplikacji języka (culture). Klucze w resx po których będziemy się odwoływać do tłumaczenia powinny w łatwy sposób określać położenie i wykorzystanie tłumaczenia:
+
+
+| klucz           | angielski               | polski         |
+| ------------- |----------------|-----------|
+| Menu.Logout   | Logout           | Wyloguj    |
+| Home.Index.Welcome | Welcom to test Application | Witaj w aplikacji testowej |
+
+Przykładowe wykorzystanie klucza
+
+```
+<a class="btn" href="/Login/Logout">@SharedLocalizer["Menu.Logout"]</a>
+<h4>@SharedLocalizer["Home.Index.Welcome"]</h4>
+```
+
+Więcej informacji na temat konfiguracji i wykorzystania SharedLocalizer można znaleźć [Tutaj](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/localization?view=aspnetcore-2.2).
+
+
 
 
 -------------------
@@ -202,16 +200,12 @@ Należy dzilić projekty w ramach solucji na niezależne ze względu na funkcjon
 Podczas wytwarzania kodu należy zwrócić również uwagę na modularyzację folderów np. Interfejsy, Serwisy, Encje, Kontrolery, Widoki, Zasoby (Resource) itp powinny znajdować się czytelnie zdefiniowanych strukturach i osobnych folderach - co jednocześnie wymusza prawidłowy podział namespaców. Przykładowy podział katalogowy modułu (projektu):
 
 ```
-  DotKit.Core
-    |-- Attributes
+  DotKit.Modules.Login
     |-- Controllers
-    |-- Entities
-    |-- Exceptions
-    |-- Localization
-    |-- Repositories
+    |-- Modules
     |-- Resources
-    |-- Services
     |-- Settings
+    |-- Views
 ```
 
 
@@ -306,5 +300,5 @@ Wytworzone przy użyciu frameworka aplikacje muszą być publikowane jako aplika
 
 Serwery będą przygotowywane i utrzymywane przez zespół utrzymaniowy po stronie OPL na podstawie instrukcji przygotowywanych przez dostawcę.
 
-## Repozytorium
+# Repozytorium
 Podstawowym repozytorium za pomocą którego OPL ma wgląd w kod źródłowy jest GIT. Na potrzeby wewnętrznego wytwarzania kodu można korzystać z dowolnego systemu kontroli wersji.
